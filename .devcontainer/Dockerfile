@@ -23,7 +23,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 # Install php extentsions.
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && install-php-extensions yaml gd pdo_sqlite pdo_mysql pdo_pgsql zip
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && install-php-extensions yaml gd opcache pdo_sqlite pdo_mysql pdo_pgsql zip
 
 # Install drush launcher.
 RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar \
