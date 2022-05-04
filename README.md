@@ -5,9 +5,9 @@ FROM [drupal/recommended-project](https://github.com/drupal/recommended-project)
 ```bash
 # Just use this as template to create new repo and clone it.
 # Check dependencies.
-$ php -v && sqlite3 -version && composer -V
-# $ mysql -V | psql -V
+$ php -v && sqlite3 -version && composer -V && psql -V
 
+$ composer install && composer workspace && composer env
 # Load env vars and check install options.
 $ . scripts/env.sh && env | grep DRUSH
 # Install site.
