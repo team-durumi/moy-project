@@ -1,0 +1,5 @@
+name: project
+type: module
+description: A project is a set of tasks performed to achieve a specific purpose within a specific period of time.
+package: moy
+core_version_requirement: ^9 || ^10

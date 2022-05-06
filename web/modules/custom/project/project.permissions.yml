@@ -1,0 +1,3 @@
+administer project:
+  title: 'Administer project settings'
+  restrict access: true
