@@ -23,9 +23,11 @@ use Drupal\user\EntityOwnerTrait;
  *     singular = "@count projects",
  *     plural = "@count projects",
  *   ),
+ *   bundle_label = @Translation("Project type"),
  *   handlers = {
  *     "list_builder" = "Drupal\project\ProjectListBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "access" = "Drupal\project\ProjectAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\project\Form\ProjectForm",
  *       "edit" = "Drupal\project\Form\ProjectForm",
@@ -36,21 +38,24 @@ use Drupal\user\EntityOwnerTrait;
  *     }
  *   },
  *   base_table = "project",
- *   admin_permission = "administer project",
+ *   admin_permission = "administer project types",
  *   entity_keys = {
  *     "id" = "id",
+ *     "bundle" = "bundle",
  *     "label" = "label",
  *     "uuid" = "uuid",
  *     "owner" = "uid",
  *   },
  *   links = {
  *     "collection" = "/admin/content/project",
- *     "add-form" = "/project/add",
+ *     "add-form" = "/project/add/{project_type}",
+ *     "add-page" = "/project/add",
  *     "canonical" = "/project/{project}",
  *     "edit-form" = "/project/{project}/edit",
  *     "delete-form" = "/project/{project}/delete",
  *   },
- *   field_ui_base_route = "entity.project.settings",
+ *   bundle_entity_type = "project_type",
+ *   field_ui_base_route = "entity.project_type.edit_form",
  * )
  */
 class Project extends ContentEntityBase implements ProjectInterface {

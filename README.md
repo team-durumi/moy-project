@@ -13,8 +13,7 @@
 $ php -v && sqlite3 -version && composer -V && psql -V
 # Clone and setup.
 $ git clone git@github.com:team-durumi/moy-project.git
-$ cd moy-project
-$ composer install && composer workspace && composer env
+$ cd moy-project && composer install && composer workspace && composer env
 # Load env vars and check install options. (default DB_URL: gh-codespace)
 $ . scripts/env.sh && env | grep DRUSH_COMMAND_SITE_INSTALL_OPTIONS_DB_URL
 # Install site.

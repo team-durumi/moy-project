@@ -8,3 +8,8 @@ entity.project.collection:
   description: 'List of projects.'
   route_name: entity.project.collection
   parent: system.admin_content
+entity.project_type.collection:
+  title: 'Project types'
+  description: 'Manage and CRUD actions on Project type.'
+  parent: system.admin_structure
+  route_name: entity.project_type.collection
