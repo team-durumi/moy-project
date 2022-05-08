@@ -1,9 +1,3 @@
-project.add_form:
-  title: 'Add project'
-  route_name: entity.project.add_form
-  appears_on:
-    - entity.project.collection
-
 project.type_add:
   title: 'Add project type'
   route_name: entity.project_type.add_form

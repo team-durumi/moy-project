@@ -1,7 +1,3 @@
-entity.project.settings:
-  title: 'Settings'
-  route_name: entity.project.settings
-  base_route: entity.project.settings
 entity.project.view:
   title: 'View'
   route_name: entity.project.canonical
