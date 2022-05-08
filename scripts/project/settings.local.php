@@ -5,7 +5,7 @@
  * Drupal site-specific custom configuration file.
  */
 
-const PROJECT_ENV = ['dev', 'stage', 'prod'];
+$project_envs = ['dev', 'stage', 'prod'];
 $settings['project_root'] = dirname(DRUPAL_ROOT);
 if (!defined('DRUPAL_ENV')) {
   define('DRUPAL_ENV', getenv('DRUPAL_ENV', 'dev'));
@@ -17,8 +17,7 @@ if (!defined('DRUPAL_ENV')) {
 $settings_keys = ['trusted_host_patterns'];
 foreach ($settings_keys as $key) {
   if (!empty(getenv('DRUPAL_' . strtoupper($key)))) {
-    $settings[$key] = ($key == 'trusted_host_patterns') ?
-      explode('|', $settings['trusted_host_patterns']) : getenv('DRUPAL_' . strtoupper($key));
+    $settings[$key] = getenv('DRUPAL_' . strtoupper($key));
   }
 }
 
