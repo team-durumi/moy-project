@@ -17,7 +17,7 @@ if (!defined('DRUPAL_ENV')) {
 $settings_keys = ['trusted_host_patterns'];
 foreach ($settings_keys as $key) {
   if (!empty(getenv('DRUPAL_' . strtoupper($key)))) {
-    $settings[$key] = getenv('DRUPAL_' . strtoupper($key));
+    $settings[$key] = ($key == 'trusted_host_patterns') ? explode('|', getenv('DRUPAL_' . strtoupper($key))) : getenv('DRUPAL_' . strtoupper($key));
   }
 }
 
