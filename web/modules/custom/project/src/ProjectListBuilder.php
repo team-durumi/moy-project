@@ -2,6 +2,7 @@
 
 namespace Drupal\project;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -67,8 +68,7 @@ class ProjectListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('ID');
-    $header['label'] = $this->t('Label');
+    $header['label'] = $this->t('Name');
     $header['uid'] = $this->t('Author');
     $header['created'] = $this->t('Created');
     $header['changed'] = $this->t('Updated');
@@ -80,8 +80,13 @@ class ProjectListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /** @var \Drupal\project\ProjectInterface $entity */
-    $row['id'] = $entity->id();
-    $row['label'] = $entity->toLink();
+    $status = $entity->get('status')->value ? 'public' : 'private';
+    $machine_name = $entity->get('machine_name')->value;
+    $slug = Html::getClass($machine_name);
+    $label = $entity->label() . ' #' . $entity->id() . ' ' . $slug;
+    $row['label'] = $entity->toLink($label, 'canonical', [
+      'attributes' => ['class' => ['project-' . $status, 'project-' . $slug]]
+    ]);
     $row['uid']['data'] = [
       '#theme' => 'username',
       '#account' => $entity->getOwner(),

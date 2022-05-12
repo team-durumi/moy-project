@@ -26,6 +26,7 @@ use Drupal\user\EntityOwnerTrait;
  *   bundle_label = @Translation("Project type"),
  *   handlers = {
  *     "list_builder" = "Drupal\project\ProjectListBuilder",
+ *     "view_builder" = "Drupal\project\ProjectViewBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "access" = "Drupal\project\ProjectAccessControlHandler",
  *     "form" = {
@@ -97,6 +98,32 @@ class Project extends ContentEntityBase implements ProjectInterface {
       ])
       ->setDisplayConfigurable('view', TRUE);
 
+    # 기계명 machine_name (machine_readable:gh,path_alias)
+    # https://www.drupal.org/node/3028311
+    $fields['machine_name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Machine name'))
+      ->setDescription(t('The machine name.'))
+      ->setSetting('max_length', 32)
+      ->setRequired(TRUE)
+      ->addConstraint('UniqueField', [])
+      ->addPropertyConstraints('value', [
+        'Regex' => ['pattern' => '/^[a-z0-9_]+$/'],
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'machine_name',
+        'weight' => -5,
+        'settings' => [
+          'source_field' => 'label',
+        ],
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -5,
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Status'))
       ->setDefaultValue(TRUE)
@@ -111,7 +138,7 @@ class Project extends ContentEntityBase implements ProjectInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'boolean',
-        'label' => 'above',
+        'label' => 'hidden',
         'weight' => 0,
         'settings' => [
           'format' => 'enabled-disabled',
@@ -119,15 +146,15 @@ class Project extends ContentEntityBase implements ProjectInterface {
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['description'] = BaseFieldDefinition::create('text_long')
+    $fields['description'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Description'))
       ->setDisplayOptions('form', [
-        'type' => 'text_textarea',
+        'type' => 'string_textfield',
         'weight' => 10,
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'text_default',
+        'type' => 'string',
         'label' => 'above',
         'weight' => 10,
       ])
@@ -146,7 +173,7 @@ class Project extends ContentEntityBase implements ProjectInterface {
         ],
         'weight' => 15,
       ])
-      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('form', FALSE)
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'author',
@@ -170,7 +197,7 @@ class Project extends ContentEntityBase implements ProjectInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
-      ->setLabel(t('Changed'))
+      ->setLabel(t('Updated'))
       ->setDescription(t('The time that the project was last edited.'));
 
     return $fields;
