@@ -63,3 +63,4 @@
 /sqlite
 /drush/Commands/contrib/
 /*.code-workspace
+/config/sync

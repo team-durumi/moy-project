@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b10736fa81179d2798f2e10aac5278b",
+    "content-hash": "cffc0070f03ae702e1f44bf75a554437",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1648,6 +1648,64 @@
             "time": "2022-05-11T09:20:58+00:00"
         },
         {
+            "name": "drupal/editor_md",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/editor_md.git",
+                "reference": "8.x-4.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/editor_md-8.x-4.0.zip",
+                "reference": "8.x-4.0",
+                "shasum": "9e28d216a75a1385c0bfe501091809f9ba7cda8f"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "drupal/markdown": "^3.0",
+                "unicorn-fail/editor.md": "^1.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-4.0",
+                    "datestamp": "1650715588",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "George Anderson (geoanders)",
+                    "homepage": "https://www.drupal.org/u/geoanders",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "a wei (a65162)",
+                    "homepage": "https://www.drupal.org/u/a65162",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mark Carver (markcarver)",
+                    "homepage": "https://www.drupal.org/u/markcarver",
+                    "role": "Co-Maintainer"
+                }
+            ],
+            "description": "Powerful open source Markdown editor.",
+            "homepage": "https://drupal.org/project/editor_md",
+            "support": {
+                "source": "http://cgit.drupalcode.org/editor_md",
+                "issues": "https://drupal.org/project/issues/editor_md"
+            }
+        },
+        {
             "name": "drupal/gin",
             "version": "3.0.0-beta2",
             "source": {
@@ -1821,6 +1879,68 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
+        },
+        {
+            "name": "drupal/markdown",
+            "version": "dev-3.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/markdown.git",
+                "reference": "b63aa95c3ac7b95116515d2de391693542b30c81"
+            },
+            "require": {
+                "composer/semver": "^1.0 || ^2.0 || ^3.0",
+                "drupal/core": "^8 || ^9",
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "league/commonmark": "The PHP CommonMark parser is a robust, highly-extensible Markdown parser for PHP based on the CommonMark and Github-Flavored Markdown specifications."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.0.x": "3.0.x-dev"
+                },
+                "drupal": {
+                    "version": "3.0.0-rc2+1-dev",
+                    "datestamp": "1642456079",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Halliwell (markhalliwell)",
+                    "homepage": "https://www.drupal.org/u/markhalliwell",
+                    "role": "D8+ Maintainer"
+                },
+                {
+                    "name": "Gisle Hannemyr (gisle)",
+                    "homepage": "https://www.drupal.org/u/gisle",
+                    "role": "D7 Maintainer"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                }
+            ],
+            "description": "Provides Markdown integration for Drupal and allows content to be formatted in a simple plain-text syntax that is transformed into valid HTML.",
+            "homepage": "https://www.drupal.org/project/markdown",
+            "support": {
+                "source": "https://git.drupalcode.org/project/markdown",
+                "issues": "https://www.drupal.org/project/markdown"
+            }
         },
         {
             "name": "drush/drush",
@@ -2714,6 +2834,99 @@
                 }
             ],
             "time": "2021-11-10T11:33:52+00:00"
+        },
+        {
+            "name": "league/commonmark",
+            "version": "1.6.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "2b8185c13bc9578367a5bf901881d1c1b5bbd09b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2b8185c13bc9578367a5bf901881d1c1b5bbd09b",
+                "reference": "2b8185c13bc9578367a5bf901881d1c1b5bbd09b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "scrutinizer/ocular": "1.7.*"
+            },
+            "require-dev": {
+                "cebe/markdown": "~1.0",
+                "commonmark/commonmark.js": "0.29.2",
+                "erusev/parsedown": "~1.0",
+                "ext-json": "*",
+                "github/gfm": "0.29.0",
+                "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "^1.4",
+                "phpstan/phpstan": "^0.12.90",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.2",
+                "scrutinizer/ocular": "^1.5",
+                "symfony/finder": "^4.2"
+            },
+            "bin": [
+                "bin/commonmark"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and Github-Flavored Markdown (GFM)",
+            "homepage": "https://commonmark.thephpleague.com",
+            "keywords": [
+                "commonmark",
+                "flavored",
+                "gfm",
+                "github",
+                "github-flavored",
+                "markdown",
+                "md",
+                "parser"
+            ],
+            "support": {
+                "docs": "https://commonmark.thephpleague.com/",
+                "issues": "https://github.com/thephpleague/commonmark/issues",
+                "rss": "https://github.com/thephpleague/commonmark/releases.atom",
+                "source": "https://github.com/thephpleague/commonmark"
+            },
+            "funding": [
+                {
+                    "url": "https://www.colinodell.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/colinpodell/10.00",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/colinodell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/commonmark",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-01-13T17:18:13+00:00"
         },
         {
             "name": "league/container",
@@ -6315,6 +6528,54 @@
             "time": "2021-11-18T18:49:23+00:00"
         },
         {
+            "name": "team-durumi/moy",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/team-durumi/moy.git",
+                "reference": "f44a641915f17f571ff1c0720c11e3aa1bf1f3af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/team-durumi/moy/zipball/f44a641915f17f571ff1c0720c11e3aa1bf1f3af",
+                "reference": "f44a641915f17f571ff1c0720c11e3aa1bf1f3af",
+                "shasum": ""
+            },
+            "require": {
+                "cweagans/composer-patches": "~1.0",
+                "drupal/editor_md": "^4.0",
+                "drupal/gin": "^3",
+                "drupal/gin_login": "^1",
+                "drupal/gin_toolbar": "^1",
+                "drupal/markdown": "^3.0.x-dev",
+                "league/commonmark": "^1.6",
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "drupal-profile",
+            "extra": {
+                "enable-patching": true,
+                "patches": {
+                    "drupal/markdown": {
+                        "https://www.drupal.org/project/markdown/issues/3265416": "https://git.drupalcode.org/project/markdown/-/merge_requests/17.patch"
+                    }
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A drupal distribution profile for project issues management.",
+            "keywords": [
+                "Drupal",
+                "Profile"
+            ],
+            "support": {
+                "source": "https://github.com/team-durumi/moy/tree/main",
+                "issues": "https://github.com/team-durumi/moy/issues"
+            },
+            "time": "2022-05-18T01:45:25+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v2.14.11",
             "source": {
@@ -6448,6 +6709,40 @@
                 "source": "https://github.com/TYPO3/phar-stream-wrapper/tree/v3.1.7"
             },
             "time": "2021-09-20T19:19:13+00:00"
+        },
+        {
+            "name": "unicorn-fail/editor.md",
+            "version": "v1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicorn-fail/editor.md.git",
+                "reference": "fa38e83740ab48693097f5a6aae69981fe62870d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicorn-fail/editor.md/zipball/fa38e83740ab48693097f5a6aae69981fe62870d",
+                "reference": "fa38e83740ab48693097f5a6aae69981fe62870d",
+                "shasum": ""
+            },
+            "type": "drupal-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Carver (markcarver)",
+                    "homepage": "https://www.drupal.org/u/markcarver",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Open source embeddable online markdown editor.",
+            "homepage": "https://www.drupal.org/project/editor_md",
+            "support": {
+                "issues": "https://github.com/unicorn-fail/editor.md/issues",
+                "source": "https://github.com/unicorn-fail/editor.md"
+            },
+            "time": "2018-03-29T21:44:54+00:00"
         },
         {
             "name": "webflo/drupal-finder",
