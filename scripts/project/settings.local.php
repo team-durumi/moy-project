@@ -20,6 +20,9 @@ foreach ($settings_keys as $key) {
     $settings[$key] = ($key == 'trusted_host_patterns') ? explode('|', getenv('DRUPAL_' . strtoupper($key))) : getenv('DRUPAL_' . strtoupper($key));
   }
 }
+$settings['config_exclude_modules'] = [
+  'devel', 'devel_generate', 'stage_file_proxy'
+];
 
 /**
  * DB 설정 $databases.
